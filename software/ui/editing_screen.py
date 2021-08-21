@@ -39,7 +39,7 @@ class Ui_EditScreen(object):
 				break
 
 		if p_object is None:
-			print("person does not exist")
+			print("Error: Patient Does not Exist")
 			return
 
 		self.MainName.setText(full_patient_name)
