@@ -1,3 +1,0 @@
-Raspbian OS
-
-(Test Visual Studio Commit/Push)
