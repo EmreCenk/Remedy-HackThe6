@@ -1,0 +1,1 @@
+pyuic5 editingscreen.ui > edit_screentest.py
