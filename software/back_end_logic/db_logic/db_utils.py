@@ -12,7 +12,7 @@ from typing import List, Tuple
 import os
 
 default_path_to_save = "patient_db.txt"
-sepcha = "\n\nseparating_now\n\n"
+sepcha = "\n\nseparating_now\n\n" #separating character between patients
 
 class db():
 
@@ -86,5 +86,37 @@ class db():
             )
 
         return patient_list
+
+    @staticmethod
+    def remove_patient(patient_name: str) -> None:
+
+        """Deletes a patients from the database"""
+
+
+        #Deleting patient profile:
+        patients = db.get_all_patients()
+
+        file = open(default_path_to_save, "w")
+        file.write("") #overwriting file
+        file.close()
+
+        for p in patients:
+            if p.name == patient_name:
+                continue
+            db.save_patient(p)
+
+        #Deleting patient pictures:
+        try:
+            image_path = os.path.join(os.getcwd(), "software", "back_end_logic", "ai_logic", "images", patient_name)
+            original_cwd = os.getcwd()
+            os.chdir(image_path)
+            for file in os.listdir():
+                os.remove(file)
+
+            os.chdir(original_cwd)
+            os.rmdir(image_path)
+
+        except:
+            pass #The user is from a previous version of the program when the imagse of the person was not saved from the ui yet. This is fine.
 
 
