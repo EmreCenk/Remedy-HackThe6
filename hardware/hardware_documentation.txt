@@ -1,1 +1,8 @@
 Hello this is where the hardware documentation will be located
+
+Arduino_1 Code Function:
+
+Arduino 1 is the arduino driving the LCD display.
+The code is opening a serial communication port at baudrate 9600, then looking for data being sent from the
+raspberry pi. If the arduino receives the byte 'g', which stands for "good", it will display the dispense 
+messages on the LCD. If it receives 'n', it will tell you no medication. 
