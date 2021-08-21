@@ -24,7 +24,32 @@ class Ui_EditScreen(object):
 						 "padding: 6px;\n"\
 						 "min-width: 10px"\
 
-	
+	def customize_for_patient(self, full_patient_name: str):
+		for i in reversed(range(self.vertical_layout_3_for_editing.count())):
+			try:
+				self.vertical_layout_3_for_editing.itemAt(i).widget().setParent(None)
+			except:
+				pass
+
+		patients = db.get_all_patients()
+		p_object = None
+		for p in patients:
+			if p.name.lower() == full_patient_name.lower():
+				p_object = p
+				break
+
+		if p_object is None:
+			print("person does not exist")
+			return
+
+		self.MainName.setText(full_patient_name)
+
+		for med in p_object.medications: # {medication_Name: [ timeOfDay, TimeOfDay,], medication: [
+			self.add_medication(med_name = med, medication_times = p_object.medications[med])
+
+		pix_map = QtGui.QPixmap(db.get_image(full_patient_name))
+		pix_map = pix_map.scaledToHeight(200)
+		self.userimage.setPixmap(pix_map)
 
 
 	def add_current_med_in_gui(self):
