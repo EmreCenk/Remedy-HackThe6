@@ -1,0 +1,7 @@
+.idea/
+venv/
+software/back_end_logic/ai_logic/images
+__pycache__/
+trainer.yml
+bfg-1.14.0.jar
+.git.bfg-report/
