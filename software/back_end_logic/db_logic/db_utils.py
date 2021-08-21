@@ -120,3 +120,82 @@ class db():
             pass #The user is from a previous version of the program when the imagse of the person was not saved from the ui yet. This is fine.
 
 
+
+    @staticmethod
+    def get_image(patient_name):
+        original_dir = os.getcwd()
+        image_path = os.path.join(original_dir, "software", "back_end_logic", "ai_logic", "images")
+        os.chdir(image_path)
+        name_to_go = None
+        for name in os.listdir():
+            if patient_name.lower() == name.lower():
+                name_to_go = name
+
+        if name_to_go is None:
+            os.chdir(original_dir)
+            return None
+
+        current_path = os.path.join(image_path, name_to_go)
+        os.chdir(current_path)
+        path_to_return = os.path.join(current_path, os.listdir()[0])
+        os.chdir(original_dir)
+
+        return path_to_return
+    @staticmethod
+    def add_medication_to_patient(patient_name: str, medication_name: str, medication_times: List[TimeOfDay]) -> None:
+        """Adds a medication to the database for a specific patient"""
+
+        patients = db.get_all_patients()
+
+        file = open(default_path_to_save, "w")
+        file.write("") #overwriting file
+        file.close()
+
+        for p in patients:
+            if p.name == patient_name:
+                if medication_name in p.medications:
+                    for specific_time in medication_times:
+                        print(specific_time.hour, specific_time.minute)
+                        p.medications[medication_name].append(specific_time)
+
+                else:
+                    p.medications[medication_name] = medication_times
+            db.save_patient(p)
+
+
+    @staticmethod
+    def get_sorted_meds(patient_list = None):
+        if patient_list is None:
+            patient_list = db.get_all_patients()
+
+        all_meds = []
+        for p in patient_list:
+            for med in p.medications:
+                if med not in all_meds:
+                    all_meds.append(med)
+
+        all_meds.sort()
+        return all_meds
+
+
+
+if __name__ == '__main__':
+    #Testing the db class:
+    # from back_end_logic.patients import Patient, TimeOfDay
+    # patient1 = Patient(name = "Example Patient1", medication_list = ["Xanax", "SomeMed"], medication_times = [TimeOfDay(1, 23), TimeOfDay(3, 2)])
+    # db.save_patient(patient1)
+    #
+    # patient1 = Patient(name = "Example Patient1", medication_list = ["Xanax", "SomeMed"], medication_times = [TimeOfDay(1, 23), TimeOfDay(3, 2)])
+    # db.save_patient(patient1)
+    #
+    #
+    # patient1 = Patient(name = "Example Patient2", medication_list = ["Xanax", "SomeMed"], medication_times = [TimeOfDay(1, 23), TimeOfDay(3, 2)])
+    # db.save_patient(patient1)
+    #
+    # #print()
+
+    db.add_medication_to_patient("Example Patient2", "adding a medication", [TimeOfDay(16, 12), TimeOfDay(16, 13)])
+
+
+    db.remove_patient("Example Patient1")
+
