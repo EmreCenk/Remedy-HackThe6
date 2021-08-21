@@ -33,7 +33,7 @@ class Ui_EditScreen(object):
 
 		patients = db.get_all_patients()
 		p_object = None
-		for p in patients:
+		for p in patients:                                                                      #Customizes the patients to be placed on the dashboard
 			if p.name.lower() == full_patient_name.lower():
 				p_object = p
 				break
