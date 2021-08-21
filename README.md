@@ -1,3 +1,3 @@
 # Remedy-HackThe6ix
 
-Description description
+A medication dispenser that can prevent medication misuse.
