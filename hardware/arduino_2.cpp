@@ -102,7 +102,7 @@ void loop(){
             serialChecker();
           }
           
-          spinner.write(190); 
+          spinner.write(180); 
           delay(1000); 
           
           medicationDispense();
@@ -120,6 +120,7 @@ void loop(){
 void medicationDispense(){
   delay(2000);
   int finalAmount = infoReceived2-'0';
+  
   for (int i=finalAmount; i>0; i--){ // this for loop dispenses the pills based on how many
     dispenser.write(30);
     delay(1000);
