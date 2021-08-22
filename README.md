@@ -12,4 +12,4 @@ Since this project also has a hardware component, there is no way to fully try o
 
 TO TEST THE APP, just clone this repo, make sure you have all the requirements found in requirements.txt and run main.py
 
-TO TEST THE AI, run raspberrypitest.py
+TO TEST THE AI RUNNING ON THE HARDWARE, run raspberrypitest.py
