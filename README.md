@@ -1,4 +1,7 @@
 # Remedy-HackThe6ix
+For more information on this project, feel free to visit our page on devpost: [insert link]
+
+
 
 A medication dispenser that can prevent medication misuse.
 
