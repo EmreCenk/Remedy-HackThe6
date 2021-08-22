@@ -10,6 +10,8 @@ For more information on this project, feel free to visit our page on devpost: [i
 
 Since this project also has a hardware component, there is no way to fully try out the dispenser part. However, what you can do is try out our desktop application, and run the code that the hardware would run. 
 
-TO TEST THE APP, just clone this repo, make sure you have all the requirements found in requirements.txt and run main.py
+### Testing the App:
+Either clone this repo, or download it. Make sure you have all the requirements found in requirements.txt. After that, run the file main.py 
 
-TO TEST THE AI RUNNING ON THE HARDWARE, run raspberrypitest.py
+### Testing the AI Running on the Hardware:
+run raspberrypitest.py
