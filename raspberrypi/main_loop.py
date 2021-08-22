@@ -74,7 +74,7 @@ def turn_on(patient_list: Sequence[Patient] = None, COM_PORT_NAME = "", language
 	for name in start_testing(threshold):
 		# constantly loops through people that have been recognized by the ai
 		# yes, this is a for loop, but it is infinite because the start_testing function goes on forever and only yields a face when it recognizes someone
-		# print("person recognized ")
+		print("person recognized ")
 		for p in patient_list: #checking to see if person is the current patient we are looking at
 			if name.lower() in p.name.lower() and perf_counter() - last_greeted_time_for_patients[p.name] > greeting_time_limit_seconds:
 				#the ai has recognized someone who is registered as a patient.

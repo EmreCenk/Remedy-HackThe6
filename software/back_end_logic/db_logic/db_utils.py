@@ -12,7 +12,7 @@ from typing import List, Tuple
 import os
 
 default_path_to_save = "patient_db.txt"
-sepcha = "\n\nseparating_now\n\n" #separating character between patients
+sepcha = "\n\nseparating_now\n\n"
 
 class db():
 
@@ -119,8 +119,6 @@ class db():
         except:
             pass #The user is from a previous version of the program when the imagse of the person was not saved from the ui yet. This is fine.
 
-
-
     @staticmethod
     def get_image(patient_name):
         original_dir = os.getcwd()
@@ -198,4 +196,6 @@ if __name__ == '__main__':
 
 
     db.remove_patient("Example Patient1")
+
+
 

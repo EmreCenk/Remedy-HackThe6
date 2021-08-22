@@ -1,5 +1,5 @@
 import serial
-from typing import Sequence
+from typing import Sequence, List
 from software.back_end_logic.db_logic.db_utils import db
 from threading import Thread
 from time import sleep
@@ -9,7 +9,7 @@ class communicator():
 
 	def __init__(self, COM_PORT_NAME = ""):
 		ports = serial.tools.list_ports.comports()
-		self.sleep_between_time = 0.5
+
 		if COM_PORT_NAME == "":
 			self.all_ports = []
 
@@ -42,12 +42,12 @@ class communicator():
 
 
 	def intialize_with_arduino(self):
-		print("sending 'g00' to initialize")
+		wait_time = 0.4
 		self.send_to_arduino(("g"))
-		sleep(self.sleep_between_time)
+		sleep(wait_time)
 		self.send_to_arduino(("0"))
-		sleep(self.sleep_between_time)
-		self.send_to_arduino(("0"))
+		sleep(wait_time)
+		self.send_to_arduino(("1"))
 
 
 
@@ -59,29 +59,27 @@ class communicator():
 
 
 	def sar(self, list_of_meds: Sequence[str]):
-		print("Sending medications to arduino")
 		#sends meds to arduino
 		medication_indexes = db.get_sorted_meds()
 		already_sent = set()
+		sleep_between_amount = 0.4
 		for m in list_of_meds:
 			if m in already_sent:
 				continue
 
-			print("sending: " + "g"+str(medication_indexes.index(m))+str(list_of_meds.count(m)))
 			#sending the "g" element
 			self.send_to_arduino("g")
-			sleep(self.sleep_between_time)
-			print('sent: ' + "g")
+			sleep(sleep_between_amount)
+
 			#sending the "x" element
 			self.send_to_arduino(str(medication_indexes.index(m)))
-			sleep(self.sleep_between_time)
-			print("sent: " + str(medication_indexes.index(m)))
+			sleep(sleep_between_amount)
+
 			#sending the y element
 			self.send_to_arduino(str(list_of_meds.count(m)))
-			print("sent: " + str(list_of_meds.count(m)))
+
 			already_sent.add(m)
-			print()
-			sleep(5) #Wait for arduino to process input
+			sleep(1) #Wait for arduino to process input
 
 if __name__ == '__main__':
 	a = communicator()
