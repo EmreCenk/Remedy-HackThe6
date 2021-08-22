@@ -3,7 +3,7 @@
 A medication dispenser that is designed to prevent medication misuse.
 
 
-For more information on this project, feel free to visit our page on devpost: https://www.youtube.com/watch?v=kwXs1PVdfvE
+For more information on this project, feel free to visit our page on devpost: https://devpost.com/software/remedy-4qwzdv?ref_content=user-portfolio&ref_feature=in_progress
 
 
 ## Try it Our For Yourself
