@@ -33,13 +33,13 @@ class Ui_EditScreen(object):
 
 		patients = db.get_all_patients()
 		p_object = None
-		for p in patients:                                                                      #Customizes the patients to be placed on the dashboard
+		for p in patients:
 			if p.name.lower() == full_patient_name.lower():
 				p_object = p
 				break
 
 		if p_object is None:
-			print("Error: Patient Does not Exist")
+			print("person does not exist")
 			return
 
 		self.MainName.setText(full_patient_name)
