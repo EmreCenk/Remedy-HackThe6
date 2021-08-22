@@ -1,0 +1,12 @@
+{'Steven': {'Xanax': [(24, 0)], 'SomeMed': [(3, 0)], 'HiMed': [(24, 0)]}}
+
+separating_now
+
+{'Ridwan': {'Vitamin C': [(24, 0)]}}
+
+separating_now
+
+{'Emre': {'Xanax': [(19, 0)], 'Ibuprofen': [(19, 0)]}}
+
+separating_now
+

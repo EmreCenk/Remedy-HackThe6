@@ -1,8 +1,24 @@
 Hello this is where the hardware documentation will be located
 
+
 Arduino_1 Code Function:
 
 Arduino 1 is the arduino driving the LCD display.
-The code is opening a serial communication port at baudrate 9600, then looking for data being sent from the
+The code is opening a serial communication port at baudrate 9600, then it looks for data being sent from the
 raspberry pi. If the arduino receives the byte 'g', which stands for "good", it will display the dispense 
-messages on the LCD. If it receives 'n', it will tell you no medication. 
+messages on the LCD. If it receives 'n', it will tell you no medication. Keep in mind that this will ignore
+the gxy system and only looks for 'g'.
+
+
+
+Arduino_2 Code Function:
+
+Arduino 2 is the arduino driving the 2 servos that control dispensing and spinning.
+The code opens a serial comm port at baudrate 9600. For the dispense and spinning system, we are using a three
+letter string system to communicate - gxy, 'g' being the activator char, x being the medication tube index, which
+in our case ranges from 0-4 and y being the amount of pills to dispense. Keep in mind that this will ignore the 
+char 'n' and just do nothing as the machine will not dispense medication if the patient doesn't need to take
+any in the first place.
+
+
+gl on the app boys

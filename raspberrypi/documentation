@@ -1,0 +1,10 @@
+
+The pi would send strings of either 'd' or 'gxy', where x is 0-4 (representing the medication type) and y is the amount. Everything else regarding the strings will be done in the
+arduino. (The arduino take the "gxy" and then breaks it down)
+
+so when you send the letter d, make the voice thing say "Face detected, please wait"
+When it sends the "gxy" sequence, make the voice say "Dispensing, please wait"
+
+
+That's really it for the arduino to pi communication. Just make sure that you replace the input in serial_comm.py and link it to facial recognition.
+
