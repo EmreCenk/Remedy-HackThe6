@@ -1,0 +1,2 @@
+There are native apps that come with windows and mac machines that allow you to open stl files
+Just download and open them to see
