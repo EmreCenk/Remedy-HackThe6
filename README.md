@@ -8,7 +8,7 @@ For more information on this project, feel free to visit our page on devpost: [i
 
 ## Try it Our For Yourself
 
-Since this project also has a hardware component, there is no way to test the hardware component. However, what you can do is try out our desktop application, and run the code that the hardware would run. 
+Since this project also has a hardware component, there is no way to fully try out the dispenser part. However, what you can do is try out our desktop application, and run the code that the hardware would run. 
 
 TO TEST THE APP, just clone this repo, make sure you have all the requirements found in requirements.txt and run main.py
 
